@@ -14,4 +14,6 @@
         <input type="hidden" name="next" value="/home" />
     </form>
     <a href="/register">Register</a>
+  <p><strong>-- OR --</strong></p>
+  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
 {% endblock %}
