@@ -9,7 +9,6 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
  
-@csrf_protect
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -22,14 +21,8 @@ def register(request):
             return HttpResponseRedirect('/register/success/')
     else:
         form = RegistrationForm()
-    variables = RequestContext(request, {
-    'form': form
-    })
  
-    return render_to_response(
-    'registration/register.html',
-    variables,
-    )
+    return render(request, 'registration/register.html', {'form': form})
  
 def register_success(request):
     return render_to_response(
@@ -42,7 +35,4 @@ def logout_page(request):
  
 @login_required
 def home(request):
-    return render_to_response(
-    'home.html',
-    { 'user': request.user }
-    )
+    return render(request, 'home.html',{ 'user': request.user })
