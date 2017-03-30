@@ -90,3 +90,6 @@ ENV/
 
 #sqlite database
 *.sqlite3
+
+#api_keys file
+api_keys.py
