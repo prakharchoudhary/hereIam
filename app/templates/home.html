@@ -4,4 +4,7 @@
 {% block content %}
     <p>Welcome {{ user.username }} !!!</p>
     <a href="/logout/">Logout</a>
+    <form method="post" action="/location">{% csrf_token %}
+    	<input type="submit" value="My Location">
+    </form> 
 {% endblock %}

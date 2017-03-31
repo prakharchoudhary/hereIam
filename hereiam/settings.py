@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',    # oauth2 for django
     'app',
+    'google_location',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -143,4 +144,4 @@ LOGIN_REDIRECT_URL = 'home'
 SOCIAL_AUTH_FACEBOOK_KEY = FACEBOOK_KEY
 SOCIAL_AUTH_FACEBOOK_SECRET = FACEBOOK_SECRET
 
-GOOGLE_MAPS_GEOLOCATION_API_KEY = GEOLOCATION
+GOOGLE_MAPS_API = GOOGLE_MAPS_API

@@ -18,16 +18,19 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from app import views as app_views
 from app.views import HomeView
+from google_location.views import LocationView
  
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
     # url(r'^$', app_views.home, name='home'),
     # url(r'^home/$', app_views.home, name='home'),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^home/$', HomeView.as_view(), name='home'),   
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', app_views.logout_page, name='logout'),
+    url(r'^home$', HomeView.as_view(), name='home'),   
+    url(r'^login$', auth_views.login, name='login'),
+    url(r'^logout$', app_views.logout_page, name='logout'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^register/$', app_views.register),
-    url(r'^register/success/$', app_views.register_success),
+    url(r'^register$', app_views.register),
+    url(r'^register/success$', app_views.register_success),
+
+    url(r'^location$', LocationView.as_view(), name='location')
 ]
